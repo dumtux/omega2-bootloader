@@ -3024,6 +3024,9 @@ void gpio_init(void)
 	RALINK_REG(RT2880_REG_PIODIR+0x04)=val;
 
 
+  // GPIO11 is not used for reset button to work on TowerController.
+  // instead, it is used for interrupt, thus commening the following part
+  /*
   //zh@onion.io
   //setting GPIO 11 High, required for the reset button to work
   val=RALINK_REG(RT2880_REG_PIODIR);
@@ -3032,6 +3035,7 @@ void gpio_init(void)
   val=RALINK_REG(RT2880_REG_PIODATA);
   val|=1<<11;
   RALINK_REG(RT2880_REG_PIODATA) = val; // GPIO 11 High
+  */
 
   //jeffzhou@onion.io
   //adding for read wifi MAC address.
